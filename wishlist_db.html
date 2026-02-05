@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wishlist</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .topnav a.active {
+            background-color: #cf0775;
+            color: white;
+            border-radius: 4px;
+        }
+        .topnav a:hover {
+            background-color: #555;
+            color: white;
+        }
+        .topnav::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .container h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        .product_box {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .product_box img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .product_box h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        .product_box p {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 15px;
+            min-height: 48px;
+        }
+        .price_text {
+            font-size: 1.1rem;
+            color: #000;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        .btn-main .btn-primary {
+            background-color: #e91e63;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-main .btn-primary:hover {
+            background-color: #d81b60;
+        }
+        .btn-remove {
+            background-color: #ff4444;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            color: white;
+            margin-top: 10px;
+        }
+        .btn-remove:hover {
+            background-color: #cc0000;
+        }
+        .proceed-to-payment {
+            display: block;
+            margin: 20px auto;
+            background-color: #4acfcb;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        @media screen and (max-width: 600px) {
+            .topnav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="signin.php">Signin</a>
+        <a href="signup.php">SignUp</a>
+        <a href="wishlist_db.html">Wishlist</a>
+    </div>
+
+    <div class="container">
+        <a href="products.html"><- Back</a><h1>Your Wishlist</h1>
+        <div class="row" id="wishlist-items">
+            <!-- Wishlist items will be dynamically added here -->
+        </div>
+        <a href="#" class="proceed-to-payment" id="proceed-to-payment">Proceed to Payment</a>
+    </div>
+
+    <script>
+        // Load wishlist from localStorage
+        function loadWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const wishlistContainer = document.getElementById('wishlist-items');
+            wishlistContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+                document.getElementById('proceed-to-payment').style.display = 'none';
+                return;
+            }
+
+            wishlist.forEach(item => {
+                const productBox = document.createElement('div');
+                productBox.className = 'col-lg-3 col-sm-6';
+                productBox.innerHTML = `
+                    <div class="product_box">
+                        <h4>${item.name}</h4>
+                        <p>${item.description}</p>
+                        <img src="${item.image}" class="image_1">
+                        <div class="btn-main">
+                            <button class="btn-remove" data-product-id="${item.id}">Remove from Wishlist</button>
+                        </div>
+                        <h3 class="price_text">Price Rs.${item.price}</h3>
+                    </div>
+                `;
+                wishlistContainer.appendChild(productBox);
+            });
+
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.btn-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    removeFromWishlist(productId);
+                });
+            });
+
+            // Update Proceed to Payment link
+            updateProceedToPaymentLink(wishlist);
+        }
+
+        // Remove item from wishlist
+        function removeFromWishlist(productId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            loadWishlist();
+        }
+
+        // Update Proceed to Payment link with all wishlist items
+        function updateProceedToPaymentLink(wishlist) {
+    const proceedButton = document.getElementById('proceed-to-payment');
+    if (wishlist.length > 0) {
+        // Encode the entire wishlist as a JSON string
+        const wishlistData = encodeURIComponent(JSON.stringify(wishlist));
+        proceedButton.href = `payment.php?wishlist=${wishlistData}`;
+        proceedButton.style.display = 'block';
+    } else {
+        proceedButton.style.display = 'none';
+    }
+}
+
+        // Load wishlist on page load
+        window.onload = loadWishlist;
+    </script>
+</body>
+</html>

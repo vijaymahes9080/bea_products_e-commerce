@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products</title>
+    
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product_box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        .product_box img {
+            max-width: 100%;
+            height: auto;
+        }
+        .btn-main {
+            margin-top: 10px;
+        }
+        /* Container title */
+.container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 40px 0 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Product box styling */
+.product_box {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.product_box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Product title */
+.product_box h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Description */
+.product_box p {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+    min-height: 48px;
+}
+
+/* Product images */
+.image_1 {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Price text */
+.price_text {
+    font-size: 1.1rem;
+    color: #000;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Button container */
+.btn-main {
+    margin-top: 10px;
+}
+
+.btn-main .btn-primary {
+    background-color: #e91e63;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-main .btn-primary:hover {
+    background-color: #d81b60;
+}
+/* Header navigation bar */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for links inside the nav */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Highlighted/active link */
+.topnav a.active {
+  background-color: #cf0775;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Hover effect on links */
+.topnav a:hover {
+  background-color: #555;
+  color: white;
+}
+
+/* Clear floats */
+.topnav::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Optional: Responsive layout for smaller screens */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+.button {
+  background-color: #4acfcb;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    
+      <!-- header section start -->
+      <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="dashboard.php">Dashboard</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="wishlist_db.html">Wishlist</a>
+    </div>
+
+    <div class="container">
+        <h1>Our Products</h1>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Beauty Brush</h4>
+                    <p>It can blend the products smoothly</p>
+                    <img src="i/brush.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Beauty Brush&price=199&image=i/brush.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="1">Wishlist</a>
+                    <h3 class="price_text">Price Rs.199</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Compact</h4>
+                    <p>Which will give you a finishing touch</p>
+                    <img src="i/facepowder.webp" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Compact&price=129&image=i/facepowder.webp" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="2">Wishlist</a>
+                    <h3 class="price_text">Price Rs.129</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Moisturizer</h4>
+                    <p>Keep your skin moisturized</p>
+                    <img src="i/moist2.png" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Moisturizer&price=249&image=https://www.idcdermo.com/cdn/shop/articles/Capture_d_ecran_2024-09-17_161957.png?v=1726604427&width=800" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="3">Wishlist</a>
+                    <h3 class="price_text">Price Rs.249</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Brush Holder</h4>
+                    <p>It's a high quality Brush Holder</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69U9T5TaG4-5fUASbAp69UlvLQRtKFXxUNw&s" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Brush Holder&price=239&image=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69U9T5TaG4-5fUASbAp69UlvLQRtKFXxUNw&s" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="4">Wishlist</a>
+                    <h3 class="price_text">Price Rs.239</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Face Serum</h4>
+                    <p>This face serum will help your skin to glow</p>
+                    <img src="i/faceserum2.jpg" class="image_1">
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Face Serum&price=359&image=https://stelanore.com/wp-content/uploads/2023/05/1-min-1-450x450.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="6">Wishlist</a>
+                    <h3 class="price_text">Price Rs.359</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Glossy Glitter Lipstick</h4>
+                    <p>This Lipstick suits all skin tones and types</p>
+                    <img src="i/lipstick3.webp" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Glossy Glitter Lipstick&price=199&image=https://flenccosmetics.com/cdn/shop/files/ZURICH.webp?v=1738908146" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="7">Wishlist</a>
+                    <h3 class="price_text">Price Rs.199</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Moisturizer</h4>
+                    <p>This Compact powder sets wet products in your skin</p>
+                    <br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDACq0s0KDyJiatcWQs6aTSd99Q9jSbUlEvuWcRDwNAoTl7th4SiJBi5HLiQ0iE-Rv2R0&usqp=CAU" class="image_1">
+                    <div class="btn-main">
+                        <br>
+                        <br>
+                        <a href="payment.php?product_name=Moisturizer&price=249&image=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDACq0s0KDyJiatcWQs6aTSd99Q9jSbUlEvuWcRDwNAoTl7th4SiJBi5HLiQ0iE-Rv2R0&usqp=CAU" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="8">Wishlist</a>
+                    <h3 class="price_text">Price Rs.249</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Highlighter</h4>
+                    <p>This will highlight your face features and enhance your beauty</p>
+                    <img src="https://cdn-cmimgopt.citymall.live/cmimgopt-e5e0c063-b716-4ab5-bded-7130d3295be0.webp" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Highlighter&price=459&image=https://cdn-cmimgopt.citymall.live/cmimgopt-e5e0c063-b716-4ab5-bded-7130d3295be0.webp" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="9">Wishlist</a>
+                    <h3 class="price_text">Price Rs.459</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Beauty Pouch</h4>
+                    <p>It's a high-quality pouch with large storage space</p>
+                    <img src="https://m.media-amazon.com/images/I/71iVFGHd1rL.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Beauty Pouch&price=449&image=https://m.media-amazon.com/images/I/71iVFGHd1rL.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="10">Wishlist</a>
+                    <h3 class="price_text">Price Rs.449</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Concealer</h4>
+                    <p>Conceals your skin and enhances your beauty</p>
+                    <img src="https://m.media-amazon.com/images/I/31qiRFSiMPL._SR290,290_.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Concealer&price=339&image=https://m.media-amazon.com/images/I/31qiRFSiMPL._SR290,290_.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="11">Wishlist</a>
+                    <h3 class="price_text">Price Rs.339</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>BB Cream</h4>
+                    <p>This BB cream powder gives glow to your skin</p>
+                    <img src="https://greenpharmacy.co.in/cdn/shop/files/1H7A0136.jpg?v=1720166578&width=1946" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=BB Cream&price=249&image=https://greenpharmacy.co.in/cdn/shop/files/1H7A0136.jpg?v=1720166578&width=1946" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="12">Wishlist</a>
+                    <h3 class="price_text">Price Rs.249</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Blush</h4>
+                    <p>This Blush has a beautiful color and texture</p>
+                    <img src="https://m.media-amazon.com/images/I/916dHALgdBL.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Blush&price=239&image=https://m.media-amazon.com/images/I/916dHALgdBL.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="13">Wishlist</a>
+                    <h3 class="price_text">Price Rs.239</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Kajal</h4>
+                    <p>This kajal will give a bold look to your eyes and face</p>
+                    <img src="https://s.alicdn.com/@sc04/kf/Hfee0fb7b809f491b99d131ca042d777cD.png_300x300.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Kajal&price=199&image=https://s.alicdn.com/@sc04/kf/Hfee0fb7b809f491b99d131ca042d777cD.png_300x300.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="14">Wishlist</a>
+                    <h3 class="price_text">Price Rs.199</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Lipstick</h4>
+                    <p>This lipstick shade suits all skin tones</p>
+                    <img src="https://www.reneecosmetics.in/cdn/shop/files/Prime-Matte_VINTAGE-ROSE_01-min_de3a6cd0-fcbf-435e-b3b6-9c6e2fb21618.jpg?v=1742487412" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Lipstick&price=279&image=https://www.reneecosmetics.in/cdn/shop/files/Prime-Matte_VINTAGE-ROSE_01-min_de3a6cd0-fcbf-435e-b3b6-9c6e2fb21618.jpg?v=1742487412" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="15">Wishlist</a>
+                    <h3 class="price_text">Price Rs.279</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Sunscreen</h4>
+                    <p>This Sunscreen has SPF50 which can protect skin</p>
+                    <img src="https://aqualogica.in/cdn/shop/products/radiance_dewy_sunscreen_50g_radiance_dewy_sunscreen_50g.jpg?v=1701149047" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Sunscreen&price=499&image=https://aqualogica.in/cdn/shop/products/radiance_dewy_sunscreen_50g_radiance_dewy_sunscreen_50g.jpg?v=1701149047" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="16">Wishlist</a>
+                    <h3 class="price_text">Price Rs.499</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Primer</h4>
+                    <p>Starting your makeup with primer gives a smooth look</p>
+                    <img src="https://images-cdn.ubuy.co.in/633ab17d1ccd74195f1cc976-e-l-f-power-grip-primer.jpg" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Primer&price=329&image=https://images-cdn.ubuy.co.in/633ab17d1ccd74195f1cc976-e-l-f-power-grip-primer.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="17">Wishlist</a>
+                    <h3 class="price_text">Price Rs.329</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Lip Balm</h4>
+                    <p>This lip balm will give your lips moisture</p>
+                    <img src="i/lipbalm.avif" class="image_1">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Lip Balm&price=119&image=https://sdcdn.io/mac/in/mac_sku_SX5W09_1x1_0.png?width=1080&height=1080" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="18">Wishlist</a>
+                    <h3 class="price_text">Price Rs.119</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Foundation</h4>
+                    <p>Foundation will be the base of your makeup</p>
+                    <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1710775541-screenshot-2024-03-18-at-15-24-29-65f85cc5cb378.png?crop=0.728xw:0.910xh;0.133xw,0.0433xh&resize=980:*" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Foundation&price=489&image=https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1710775541-screenshot-2024-03-18-at-15-24-29-65f85cc5cb378.png?crop=0.728xw:0.910xh;0.133xw,0.0433xh&resize=980:*" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="19">Wishlist</a>
+                    <h3 class="price_text">Price Rs.489</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Eyebrow Stick</h4>
+                    <p>Eyebrow stick makes your eyebrows look fuller</p>
+                    <img src="i/eyebrowstick.avif" class="image_1">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Eyebrow Stick&price=119&image=https://sdcdn.io/mac/in/mac_sku_STX309_1x1_0.png?width=1080&height=1080" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="20">Wishlist</a>
+                    <h3 class="price_text">Price Rs.119</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Contour</h4>
+                    <p>Contouring your face is an important thing in makeup</p>
+                    <img src="https://swissbeauty.in/cdn/shop/products/01E_8af1bec7-fba5-4ad8-b49e-faebfe5ace8f_1080x.jpg?v=1743403817" class="image_1">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Contour&price=349&image=https://swissbeauty.in/cdn/shop/products/01E_8af1bec7-fba5-4ad8-b49e-faebfe5ace8f_1080x.jpg?v=1743403817" class="btn btn-primary">Buy Now</a>
+                       
+                    </div>
+                    <a href="#" class="button" data-product-id="21">Wishlist</a>
+                    <h3 class="price_text">Price Rs.349</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Eyeshadow Palette</h4>
+                    <p>This eyeshadow palette contains beautiful colors</p>
+                    <img src="https://www.gosupps.com/media/catalog/product/8/1/811zdIPHocL.jpg" class="image_1">
+                    <br>
+                    <br>    
+                    <br>    
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Eyeshadow Palette&price=659&image=https://www.gosupps.com/media/catalog/product/8/1/811zdIPHocL.jpg" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="22">Wishlist</a>
+                    <h3 class="price_text">Price Rs.659</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Bronzer</h4>
+                    <p>Bronzer makes your face features look defined</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBSxgzJdwidoT3OpanC-WMzZUv7iGXtUbIZg&s" class="image_1">
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Bronzer&price=449&image=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBSxgzJdwidoT3OpanC-WMzZUv7iGXtUbIZg&s" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="23">Wishlist</a>
+                    <h3 class="price_text">Price Rs.449</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Face Powder</h4>
+                    <p>This Compact powder sets wet products in your skin</p>
+                    <br>
+                    <img src="https://milabeaute.com/cdn/shop/files/perfectingcompact.jpg?v=1743589477&width=1500" class="image_1">
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Face Powder&price=259&image=https://milabeaute.com/cdn/shop/files/perfectingcompact.jpg?v=1743589477&width=1500" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="24">Wishlist</a>
+                    <h3 class="price_text">Price Rs.259</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Setting Spray</h4>
+                    <p>Setting spray sets your makeup for long-lasting</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRl3OWjwL1dc-s_qErOuxHrnYQDmaxRPEiA&s" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Setting Spray&price=349&image=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRl3OWjwL1dc-s_qErOuxHrnYQDmaxRPEiA&s" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="25">Wishlist</a>
+                    <h3 class="price_text">Price Rs.349</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Eye Primer</h4>
+                    <p>This Eye primer smoothens your eye for a beautiful eye look</p>
+                    <img src="https://i.redd.it/ultimate-eye-primer-test-elizabeth-mott-thank-me-later-v0-jgbdwl6hsy9a1.jpg?width=2225&format=pjpg&auto=webp&s=5d00654dddf2850e1f8a34c240e35063bd692ad3" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Eye Primer&price=399&image=https://i.redd.it/ultimate-eye-primer-test-elizabeth-mott-thank-me-later-v0-jgbdwl6hsy9a1.jpg?width=2225&format=pjpg&auto=webp&s=5d00654dddf2850e1f8a34c240e35063bd692ad3" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="26">Wishlist</a>
+                    <h3 class="price_text">Price Rs.399</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Eyeshadow Palette</h4>
+                    <p>This Eyeshadow palette has beautiful colors</p>
+                    <br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJO0Qzlpyd7kLB-ggSBLSCnc4roEDziK1hg&s" class="image_1">
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Eyeshadow Palette&price=699&image=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJO0Qzlpyd7kLB-ggSBLSCnc4roEDziK1hg&s" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="27">Wishlist</a>
+                    <h3 class="price_text">Price Rs.699</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product_box">
+                    <h4>Lipliner</h4>
+                    <p>This Lipliner will define your lip look and color</p>
+                    <img src="https://us.iconiclondoninc.com/cdn/shop/files/Iconic_Lip-Liner_Texture_Scandalous.png?v=1739102200" class="image_1">
+                    <br>
+                    <br>
+                    <div class="btn-main">
+                        <a href="payment.php?product_name=Lipliner&price=269&image=https://us.iconiclondoninc.com/cdn/shop/files/Iconic_Lip-Liner_Texture_Scandalous.png?v=1739102200" class="btn btn-primary">Buy Now</a>
+                    </div>
+                    <a href="#" class="button" data-product-id="28">Wishlist</a>
+                    <h3 class="price_text">Price Rs.269</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add to Wishlist
+        document.querySelectorAll('.button[data-product-id]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productId = this.getAttribute('data-product-id');
+                const productBox = this.closest('.product_box');
+                const product = {
+                    id: productId,
+                    name: productBox.querySelector('h4').textContent,
+                    description: productBox.querySelector('p').textContent,
+                    price: productBox.querySelector('.price_text').textContent.replace('Price Rs.', ''),
+                    image: productBox.querySelector('img').src
+                };
+    
+                // Get existing wishlist or initialize empty array
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    
+                // Check if product is already in wishlist
+                if (!wishlist.some(item => item.id === productId)) {
+                    wishlist.push(product);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    alert(`${product.name} added to wishlist!`);
+                } else {
+                    alert(`${product.name} is already in your wishlist!`);
+                }
+    
+                // Redirect to wishlist page
+                window.location.href = 'wishlist_db.html';
+            });
+        });
+    </script>
+</body>
+</html>
